@@ -37,7 +37,7 @@ pipeline {
         branch 'develop'
       }
       steps {
-        mvn "gitflow:release-start gitflow:release-finish"
+        mvn "gitflow:release"
       }
     }
   }
