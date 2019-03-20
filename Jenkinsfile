@@ -34,7 +34,7 @@ pipeline {
 
     stage('Release') {
       when {
-        branch 'master'
+        branch 'develop'
       }
       steps {
         mvn "gitflow:release-start gitflow:release-finish"
