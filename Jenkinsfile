@@ -43,6 +43,6 @@ def mvn(String goals) {
   withMaven(
     mavenOpts: '-Xmx768m -Djava.awt.headless=true'
   ){
-    sh "mvn -B ${goals}"
+    sh "\$MVN_CMD -B ${goals}"
   }
 }
