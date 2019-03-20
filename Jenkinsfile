@@ -11,7 +11,7 @@ pipeline {
   }
   
   stages {
-    stage('Build') {
+    stage('Prepare') {
       steps {
         script {
           def commitId = sh(returnStdout: true, script: 'git rev-parse --verify --short HEAD')?.trim()
@@ -21,12 +21,21 @@ pipeline {
           currentBuild.description = "Release Demo ${imageTag}"
           imageName = "jenkins-demo/release-demo:${imageTag}"
         }
+      }
+    }
+
+    stage('Build') {
+      steps {
         mvn "verify"
       }
+    }
 
+    stage('Release') {
+      steps {
+        mvn "gitflow:release-start gitflow:release-finish"
+      }
     }
   }
-
 }
 
 // Utility functions
