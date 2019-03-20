@@ -20,8 +20,6 @@ pipeline {
           def imageTag = "${branchName}-${commitId}-${env.BUILD_ID}"
           currentBuild.description = "Release Demo ${imageTag}"
           imageName = "jenkins-demo/release-demo:${imageTag}"
-          sh 'git config user.email "aheritier@apache.org"'
-          sh 'git config user.name "Arnaud Héritier"'
         }
       }
     }
