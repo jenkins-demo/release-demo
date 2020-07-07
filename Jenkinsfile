@@ -3,6 +3,7 @@ properties([
 ])
 
 pipeline {
+  
   options {
     buildDiscarder(logRotator(artifactNumToKeepStr: '5', numToKeepStr: '10'))
   }
