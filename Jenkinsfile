@@ -2,8 +2,7 @@ properties([
   [$class: 'GithubProjectProperty', displayName: 'Release Demo', projectUrlStr: 'https://github.com/jenkins-demo/release-demo/']
 ])
 
-pipeline {
-  
+pipeline {  
   options {
     buildDiscarder(logRotator(artifactNumToKeepStr: '5', numToKeepStr: '10'))
   }
